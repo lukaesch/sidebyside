@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rust vs. Java Code Comparison</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=San+Francisco&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #ff79c6;
+        --secondary-color: #bd93f9;
+      }
+
+      body {
+        font-family: "San Francisco", sans-serif;
+        background-image: linear-gradient(
+          to right,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+      }
+
+      h1,
+      h2 {
+        color: #fff;
+      }
+
+      pre {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+      }
+
+      #summary {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mx-auto p-4 py-9">
+      <h1 class="text-4xl text-center font-medium mb-4" id="header"></h1>
+      <div class="grid md:grid-cols-2 sm:grid-cols-1">
+        <div class="col-span-1 pr-4">
+          <h2 class="text-2xl font-medium">Rust</h2>
+          <pre
+            class="p-4 rounded-lg overflow-auto"
+          ><code id="rust-code"></code></pre>
+        </div>
+        <div class="col-span-1">
+          <h2 class="text-2xl font-medium">Java</h2>
+          <pre
+            class="p-4 rounded-lg overflow-auto"
+          ><code id="java-code"></code></pre>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h2 class="text-2xl font-medium">Summary</h2>
+        <p class="p-4 rounded-lg" id="summary"></p>
+      </div>
+    </div>
+    <nav
+      class="fixed bottom-0 left-0 right-0 bg-gray-800 p-4 flex justify-center"
+    >
+      <!-- Nav buttons will be added here -->
+    </nav>
+
+    <script>
+      let codeSnippets = {
+        page1: {
+          header: "Hello World Example",
+          rust: `fn main() {
+    println!("Hello, world!");
+  }`,
+          java: `public class Main {
+    public static void main(String[] args) {
+      System.out.println("Hello, world!");
+    }
+  }`,
+          summary: `Rust and Java are both object-oriented programming languages. They both have a main function that is the entry point of the program. In Rust, the main function is declared with the fn keyword. In Java, the main function is declared with the public static void keywords.`,
+        },
+        page2: {
+          header: "Sum Function Example",
+          rust: `fn sum(a: i32, b: i32) -> i32 {
+    a + b
+  }`,
+          java: `public int sum(int a, int b) {
+    return a + b;
+  }`,
+          summary: `Rust and Java are both statically typed languages. In Rust, the type of a variable is declared after the variable name. In Java, the type of a variable is declared before the variable name. In Rust, the type of a function parameter is declared after the parameter name. In Java, the type of a function parameter is declared before the parameter name. In Rust, the return type of a function is declared after the function parameters. In Java, the return type of a function is declared after the function name.`,
+        },
+        page3: {
+          header: "Variable Declarations",
+          rust: `fn main() {
+    let x = 5;
+    let mut y = 10;
+  }`,
+          java: `public class Main {
+    public static void main(String[] args) {
+      int x = 5;
+      int y = 10;
+    }`,
+          summary: `In Rust, variables are immutable by default. To make a variable mutable, the mut keyword is used. In Java, variables are mutable by default. To make a variable immutable, the final keyword is used.`,
+        },
+        page4: {
+          header: "String Concatenation",
+          rust: `fn main() {
+    let name = "John";
+    let greeting = "Hello, ".to_string() + name;
+  }`,
+          java: `public class Main {
+    public static void main(String[] args) {
+      String name = "John";
+      String greeting = "Hello, " + name;
+      }
+    }`,
+          summary: `In Rust, the + operator is used to concatenate strings. The to_string() method is used to convert a string literal to a String object. The object is allocated on the heap.
+     In Java, the + operator is used to concatenate strings. Strings are allocated on the heap.`,
+        },
+        page5: {
+          header: "String Interpolation",
+          rust: `fn main() {
+    let name = "John";
+    let greeting = format!("Hello, {}", name);
+  }`,
+          java: `public class Main {
+    public static void main(String[] args) {
+      String name = "John";
+      String greeting = "Hello, " + name;
+    }
+  }`,
+          summary: `In Rust, the format! macro is used to interpolate strings. Strings are allocated on the stack. The macro is used to avoid allocating memory on the heap. 
+    In Java, the + operator is used to concatenate strings. Strings are allocated on the heap.`,
+        },
+        page6: {
+          header: "String Interpolation",
+          rust: `fn main() {
+    In Java, the + operator is used to concatenate strings.`,
+        },
+        page7: {
+          header: "Arrays",
+          rust: `fn main() {
+    let numbers = [1, 2, 3];
+    for number in numbers.iter() {
+      println!("{}", number);
+    } 
+  }`,
+          java: `public class Main {
+    public static void main(String[] args) {
+      int[] numbers = {1, 2, 3};
+      for (int number : numbers) {
+        System.out.println(number);
+      }
+    }
+  }`,
+          summary: `In Rust, arrays are declared with the [type; size] syntax. They are iterated with the for loop. Arrays allocate memory on the stack. 
+    In Java, arrays are declared with the type[] syntax. They are iterated with the for-each loop. Arrays allocate memory on the heap.`,
+        },
+        page8: {
+          header: "Vectors",
+          rust: `fn main() {
+    let numbers = vec![1, 2, 3];
+    for number in numbers {
+      println!("{}", number);
+    }
+  }`,
+          java: `public class Main {
+    public static void main(String[] args) {
+      List<Integer> numbers = new ArrayList<>();
+      numbers.add(1);
+      numbers.add(2);
+      numbers.add(3);
+      for (int number : numbers) {
+        System.out.println(number);
+      }
+    }
+  }`,
+          summary: `In Rust, vectors are declared with the vec! macro. They are iterated with the for loop. 
+    In Java, there is no vector type. Instead, ArrayLists are used. They are iterated with the for-each loop.`,
+        },
+        page10: {
+          header: "HashMaps",
+          rust: `fn main() {
+    let mut map = HashMap::new();
+    map.insert("one", 1);
+    map.insert("two", 2);
+    map.insert("three", 3);
+    for (key, value) in map {
+      println!("{}: {}", key, value);
+    }
+  }`,
+          java: `public class Main {
+    public static void main(String[] args) {
+      Map<String, Integer> map = new HashMap<>();
+      map.put("one", 1);
+      map.put("two", 2);
+      map.put("three", 3);
+      for (Map.Entry<String, Integer> entry : map.entrySet()) {
+        System.out.println(entry.getKey() + ": " + entry.getValue());
+      }
+    }
+  }`,
+          summary: `In Rust, HashMaps are declared with the HashMap::new() syntax. They are iterated with the for loop. 
+    In Java, HashMaps are declared with the HashMap class. They are iterated with the for-each loop.`,
+        },
+        page11: {
+          header: "Function Declaration",
+          rust: `fn main() {
+    println!("{}", add(1, 2));
+}
+
+fn add(x: i32, y: i32) -> i32 {
+    x + y
+}`,
+          java: `public class Main {
+    public static void main(String[] args) {
+      System.out.println(add(1, 2));
+    }
+
+    public static int add(int x, int y) {
+      return x + y;
+    }
+  }`,
+          summary: `In Rust, functions are declared with the fn keyword. 
+    In Java, functions are declared with the static keyword.`,
+        },
+      };
+
+      function updateCode() {
+        let page = window.location.hash.substr(1); // get the current page from the URL hash
+        if (codeSnippets[page]) {
+          document.getElementById("header").innerText =
+            codeSnippets[page].header;
+          document.getElementById("rust-code").innerText =
+            codeSnippets[page].rust;
+          document.getElementById("java-code").innerText =
+            codeSnippets[page].java;
+          document.getElementById("summary").innerText =
+            codeSnippets[page].summary;
+        }
+      }
+
+      function updateNav() {
+        let page = window.location.hash.substr(1);
+        let links = document.querySelectorAll("nav a");
+        links.forEach((link) => {
+          console.log(link.getAttribute("href"));
+          console.log(link.getAttribute("href") === "#" + page);
+          if (link.getAttribute("href") === "#" + page) {
+            link.classList.add("text-blue-500");
+          } else {
+            link.classList.remove("text-blue-500");
+          }
+        });
+      }
+
+      function createNavButtons(pages) {
+        let nav = document.querySelector("nav");
+        for (let page in pages) {
+          let button = document.createElement("a");
+          button.classList.add("text-white", "hover:text-blue-500", "mx-4");
+          button.setAttribute("href", "#" + page);
+          button.innerText = pages[page].header;
+          nav.appendChild(button);
+        }
+      }
+
+      function switchPage(direction) {
+        let currentPage = window.location.hash.substr(1);
+        let pages = Object.keys(codeSnippets);
+        let currentIndex = pages.indexOf(currentPage);
+
+        if (direction === "next" && currentIndex < pages.length - 1) {
+          window.location.hash = pages[currentIndex + 1];
+        } else if (direction === "prev" && currentIndex > 0) {
+          window.location.hash = pages[currentIndex - 1];
+        }
+
+        updateCode();
+        updateNav();
+      }
+
+      createNavButtons(codeSnippets);
+      updateCode();
+      updateNav();
+      window.addEventListener("hashchange", function () {
+        updateCode();
+        updateNav();
+      });
+      window.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowRight") {
+          switchPage("next");
+        } else if (event.key === "ArrowLeft") {
+          switchPage("prev");
+        }
+      });
+    </script>
+  </body>
+</html>
