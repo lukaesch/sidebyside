@@ -1,8 +1,25 @@
-# rust-vs-java-slides
-A simple SPA written in Vanilla JS to present the difference between Rust and Java.
+# SideBySide: A Simple SPA for Code Comparison
+This is a simple single-page application (SPA) written in Vanilla JavaScript to demonstrate the differences between Rust and Java programming languages. The SPA allows you to switch between the pages using left/right arrow keys or by clicking on the bottom navigation.
 
-Do you want to compare other programming langes or topics? Just replace the ``codeSnippets`` variable with your own content.
-Too lazy to create content by yourself? Paste the ``codeSnippets`` content to ChatGPT and write the following prompt: "Use this JSON as a reference and replace the value for a new comparison between topicA and topicB"
+[Try it here](https://lukaesch.github.io/rust-vs-java-slides/)
 
-Happy presenting!
+## Features:
+- Compare two blocks of text
+- Easy navigation through pages
+- Written in Vanilla JavaScript for easy modification, no SPA-framework bloatware 😎
+- Synthwave design
 
+## Use Cases:
+- Presenting the differences between Rust and Java programming languages (or other programming languages!)
+- Comparing other programming languages or topics
+- As a reference for creating code comparison presentations
+
+## How to Use:
+Replace the ``codeSnippets`` variable with your own content to compare other programming languages or topics.
+If you don't want to create content yourself, paste the ``codeSnippets`` content to ChatGPT and write the prompt: "Use this JSON as a reference and replace the value for a new comparison between topicA and topicB".
+
+## Contributing:
+This project is open to contributions from other developers. If you have any suggestions or improvements, feel free to submit a pull request.
+
+Happy Presenting!
+We hope this simple SPA helps you in your presentations and code comparison needs. Have fun!
