@@ -1,7 +1,7 @@
 # SideBySide: A Simple SPA for Code Comparison
 This is a simple single-page application (SPA) written in Vanilla JavaScript to demonstrate the differences between Rust and Java programming languages. The SPA allows you to switch between the pages using left/right arrow keys or by clicking on the bottom navigation.
 
-[Try it here](https://lukaesch.github.io/rust-vs-java-slides/)
+[Try it here](https://lukaesch.github.io/sidebyside/)
 
 ## Features:
 - Compare two blocks of text
