@@ -9,10 +9,17 @@ This is a simple single-page application (SPA) written in Vanilla JavaScript to 
 - Written in Vanilla JavaScript for easy modification, no SPA-framework bloatware 😎
 - Synthwave design
 
-## Use Cases:
-- Presenting the differences between Rust and Java programming languages (or other programming languages!)
-- Comparing other programming languages or topics
-- As a reference for creating code comparison presentations
+## Use Cases (ideas):
+- Comparing the differences between two versions of source code
+- Comparing the output of two algorithms
+- Comparing the results of two experiments
+- Comparing the syntax of two programming languages
+- Comparing the features of two products or services
+- Comparing the benefits and drawbacks of two approaches
+- Comparing the differences between two texts or articles
+- Comparing the results of two surveys or polls
+- Comparing the prices and specifications of two products.
+The opportunities are limitless!
 
 ## How to Use:
 Replace the ``codeSnippets`` variable with your own content to compare other programming languages or topics.
