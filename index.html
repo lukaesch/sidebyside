@@ -41,10 +41,54 @@
         background-color: rgba(0, 0, 0, 0.4);
         color: #fff;
       }
+
+      .message {
+        display: none;
+      }
+
+      /* show a friendly message for non-desktop screens */
+      @media only screen and (max-width: 767px) {
+        /* blur the container */
+        .container {
+          filter: blur(5px);
+        }
+
+        .message {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          text-align: center;
+          font-size: 18px;
+          font-weight: bold;
+          padding: 30px;
+          z-index: 1;
+        }
+
+        .message p {
+          position: relative;
+          display: inline-block;
+          color: #fff;
+          text-shadow: 0 0 10px #fff;
+        }
+
+        /* hide the nav */
+
+        nav {
+          display: none !important;
+        }
+      }
     </style>
   </head>
 
   <body>
+    <div class="message">
+      <p>
+        This content is not optimized for small screens. Please view this on a
+        desktop for the best experience.
+      </p>
+    </div>
     <div class="container mx-auto p-4 py-9">
       <h1 class="text-4xl text-center font-medium mb-4" id="header"></h1>
       <div class="grid md:grid-cols-2 sm:grid-cols-1">
